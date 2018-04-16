@@ -1,57 +1,47 @@
-<?php 
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>admin</title>
+</head>
+<body>
 
-interface FirstInterFace{
-	public function getPar();	
-}
-
-class Object implements FirstInterFace
- {
-  public $name;
-	
-	public function __construct($name)
-	{
-		$this->name = $name;
-	}
-public function getPar(){
-		$info =  "{$this->name}";
-		    return $info;
-	}
-	
-  }
-
-
- ?>
 <p>Автомобили</p>
 <hr/>
 
 
 <?php 
-class Car extends Object
+class Car
 {
-	public $marka;
+	public $make;
+	public $model;
 	public $color;
-
-	public function __construct($name, $marka, $color)
+	
+	public function setParam($valueMake, $valueModel, $valueColor)
 	{
-		parent::__construct($name);
-		$this->marka = $marka;
-		 $this->color = $color;
+		$this->make = $valueMake;
+		$this->model = $valueModel;
+		$this->color = $valueColor;
 	}
 
-	public function getPar()
+	public function getParam()
 	{
-		$info = parent::getPar();
-		$info .= "{$this->marka} "."{$this->color}". "<br/>";
-		return $info;
-
+    echo "Марка:". " " .$this->make . "<br/>" ;
+    echo "Модель:". " " .$this->model. "<br/>";
+    echo "Цвет:". " " .$this->color. "<br/>" . "<br/>";
 	}
+		
 }
 
-$a = new Car("bmv", "X6", "Черный");
-echo $audi->getPar();
+$lada = new Car;
+echo $lada-> setParam("Лада", "2114", "черная");
+echo $lada->getParam();
 
-$rr = new Car("rollRous", "fantom", "белый");
-echo $honda->getPar();
+
+$prior= new Car;
+
+echo $prior-> setParam("Лада", "priora", "белая");
+echo $prior->getParam();
 
 ?>
 
@@ -62,132 +52,139 @@ echo $honda->getPar();
 
 <?php
 
-class tv extends Object
+class tv
+{	
+	public $model;
+	public $cool
+	public function setParam( $valueModel, $valueCool)
+	{
+	$this->model = $valueModel;
+	$this->cool = $valueCool;
+	}
+public function getParam()
 {
-	
-	public $quality;
-
-	public function __construct($name, $quality)
-		{
-			parent::__construct($name);
-			$this->quality = $quality;
+		   
+			echo "Модель:". " " .$this->model. "<br/>";
+			echo "Качество:". " " .$this->cool. "<br/>" . "<br/>";
+			}
 		}
 
-	public function getParam()
-			{
-				$info = parent::getPar();
-				$info .= "{$this->quality}". "<br/>";
-				return $info;
-		   
-			}
-}
+		$tv1 = new tv;
+		echo $tv1-> setParam("Samsung", "FullHD");
+		echo $tv1->getParam();
 
-$tv1 = new Tv("samsung", "HD");
-echo $tv1->getPar();
 
-$tv2 = new Tv("samsung", "FullHD");
-echo $tv2->getPar();
+		$tv2 = new tv;
 
- ?>
+		echo $tv2-> setParam("квн", "Плохое");
+		echo $tv2->getParam();
+
+?>
 
  
- <p>Шариковая ручка</p>
+<p>Шариковая ручка</p>
 <hr/>
-
 
 <?php 
 
-class Pen extends Object
-{
-	
-	public $inkColor;
-	
-	public function __construct($name, $col)
-	{
-		parent::__construct($name);
-		$this->inkColor = $col;
-	}
+class pen
+			{
+	public $pen;
+	public $type;
+    public function setParam( $valuePen, $valueType){
+$this->pen = $valuePen;
+$this->type = $valueType;
+				}
+    public function getParam()
+				{
+   echo "Цвет:". " " .$this->pen. "<br/>";
+				echo "Тип:". " " .$this->type. "<br/>" . "<br/>";
+				}
+			}
 
-	public function getPar()
-	{
-		$info = parent::getPar();
-		$info .= "{$this->inkColor}". "<br/>";
-		return $info;
-    }
-}
+			$pen_1 = new pen;
+			echo $pen_1-> setParam("черная", "Автоматическая");
+			echo $pen_1->getParam();
 
-$pen1 = new Pen("Шариковая ручка ", "черная");
-echo $pen1->getPar();
 
-$pen2 = new Pen("Шариковая ручка", "синяя");
-echo $pen2->getPar();
+			$pen_1pen2 = new pen;
 
- ?>
+			echo $pen_1pen2-> setParam("Синий", " Не автоматичсекая");
+			echo $pen_1pen2->getParam();
 
- <p>Утка</p>
+?>
+
+<p>Утка</p>
 <hr/>
 
 
 <?php
+class duck
+			{
+		public $color;
+		public $type;
 
-class duck extends Object
-{
-	
-	public $color;
-	
-	public function __construct($name, $color)
+		public function setParam( $valueColor, $valueType)
+		{
+		$this->color = $valueColor;
+		$this->type = $valueType;
+		}
+   public function getParam()
 	{
-		parent::__construct($name);
-		$this->color = $color;
-	}
-
-	public function getPar()
-	{
-		$info = parent::getPar();
-		$info .= "{$this->color}". "<br/>";
-		return $info;
-   
+	 echo "Цвет :". " " .$this->color. "<br/>";
+	 echo "Тип:". " " .$this->type. "<br/>" . "<br/>";
+    }
+	 }
     
-	}
-}
+	$duck1 = new duck;
+	echo $duck1-> setParam("желтая", "резиновая");
+    echo $duck1->getParam();
 
-$duck1 = new duck("резиновая", "желтая");
-echo $duck1->getPar();
+	$duck2 = new duck;
 
-$duck2 = new duck("Дикая", "коричневая");
-echo $duck2->getPar();
+	echo $duck2-> setParam("коричневая", "Дикая");
+	echo $duck2->getParam();
 
- ?>
+?>
 
 
- <p>Товар</p>
+<p>Товар</p>
 <hr/>
 
-
 <?php
-class Item extends Object
+class item
 {
-	public $price;
-
-	public function __construct($name, $price)
-	{
-		parent::__construct($name);
-		$this->price = $price;
-	}
-
-	public function getParam()
-	{
-		$info = parent::getParam();
-		$info .= "{$this->price}". "<br/>";
-		return $info;
-    }
+						
+public $name;
+public $price;
+public function setParam( $valueName, $valuePrice)
+{
+							
+	$this->name = $valueName;
+	$this->price = $valuePrice;
 }
 
-$item1 = new Item("творог", "47 руб.");
-echo $item1->getPar();
+public function getParam()
+	{
+	 echo "Название товара :". " " .$this->name. "<br/>";
+	 echo "Цена". " " .$this->price. "<br/>" . "<br/>";
+	}
+}
+
+$item1 = new item;
+echo $item1-> setParam("Творог", "60 руб.");
+echo $item1->getParam();
 
 
-$item2 = new Item("Греча", "18 руб.");
-echo $item2->getPar();
+$item2 = new item;
 
- ?>
+echo $item2-> setParam("Каша гречнивая", "18 руб.");
+echo $item2->getParam();
+?>
+
+</body>
+</html>
+
+Плюсы и минусы
+	<hr/>
+<br />
